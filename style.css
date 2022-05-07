@@ -6,6 +6,8 @@ body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
+  background: linear-gradient(to bottom, #ebeae9, #96c0dc);
+  background: #000;
 }
 
 canvas {
@@ -15,5 +17,4 @@ canvas {
   left: 0;
   width: 100%!important;
   height: 100%!important;
-  background: black;
 }
