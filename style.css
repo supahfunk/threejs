@@ -6,8 +6,8 @@ body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
-  background: linear-gradient(to bottom, #ebeae9, #96c0dc);
-  background: #000;
+  /* background: linear-gradient(to bottom, #ebeae9, #96c0dc); */
+  background: #eee;
 }
 
 canvas {
