@@ -36,7 +36,7 @@ Plane
 const planeGeo = new THREE.PlaneGeometry(50, 50)
 const planeMat = new THREE.MeshStandardMaterial({
 	color: opts.planeMaterial,
-	roughness: 0.8,
+	roughness: 0.1,
 	side: THREE.DoubleSide
 })
 const plane = new THREE.Mesh(planeGeo, planeMat)
@@ -54,7 +54,7 @@ composition.position.y = 0.015
 const cylinderGeo = new THREE.CylinderGeometry(1, 1, 0.02, 64, 1)
 const cylinderMat = new THREE.MeshStandardMaterial({
 	color: '#03a9f4',
-	roughness: 0.9
+	roughness: 0
 	// side: THREE.DoubleSide
 	// wireframe: true
 })
@@ -81,7 +81,7 @@ composition.add(sphereGroup)
 const sphereGeo = new THREE.SphereGeometry(0.5, 48, 48, 0, Math.PI)
 const sphereMat = new THREE.MeshStandardMaterial({
 	color: '#ffffff',
-	roughness: 0.3,
+	roughness: 0.1,
   side: THREE.DoubleSide,
 })
 const sphere = new THREE.Mesh(sphereGeo, sphereMat)
@@ -120,11 +120,20 @@ cube.scale.setScalar(0.3)
 cube.position.y = .7
 composition.add(cube)
 
+/*------------------------------
+Environment Map
+------------------------------*/
+const loader = new THREE.CubeTextureLoader()
+loader.setPath('images/')
+const textureCube = loader.load( [ 'posx.jpg', 'negx.jpg', 'posy.jpg', 'negy.jpg', 'posz.jpg', 'negz.jpg' ] )
+textureCube.encoding = THREE.sRGBEncoding
+scene.environment = textureCube
+
 
 /*------------------------------
 Light
 ------------------------------*/
-const light1 = new THREE.DirectionalLight(0xffffff, 0.6)
+const light1 = new THREE.DirectionalLight(0xffffff, 0.1)
 light1.castShadow = true
 light1.shadow.mapSize.width = 2048
 light1.shadow.mapSize.height = 2048
